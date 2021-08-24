@@ -2,11 +2,13 @@ import java.util.*;
 public class HelloSally {
 
 	public static void main(String[] args) {
+		// take in input from the user
 		Scanner userInput = new Scanner(System.in);
 		
 		System.out.println("type 'hello sally' to begin.");
 		String startCommand = userInput.nextLine().toLowerCase();
 		
+			// error handling
 			while(!startCommand.equals("hello sally")) {
 				System.out.println("...try again dudski.");
 				startCommand = userInput.nextLine();
@@ -17,6 +19,7 @@ public class HelloSally {
         	
         	boolean cont = true;
         	
+		// array list that stores the list of activities
             ArrayList<String> activities = new ArrayList<String>(
             		Arrays.asList(
               		 "Plant an herb garden. Help the environment, be healthy and have a cute garden! \n (tip: basil smells and tastes great)",
@@ -50,6 +53,7 @@ public class HelloSally {
          	System.out.println("if you are bored, type \'bored\'");
         	String userFeeling = userInput.nextLine().toLowerCase();
         	
+			// error handling
         		while(!userFeeling.equals("bored")) {
         			System.out.println("I think you spelled bored wrong. try again.");
         			userFeeling = userInput.nextLine().toLowerCase();
@@ -65,6 +69,7 @@ public class HelloSally {
        
                  System.out.println("Today you should try doing:");
 
+		// randomly select activity from the list using random instant
                  Random random = new Random();
                  int rand = random.nextInt(activities.size()-1);
                  
@@ -72,15 +77,19 @@ public class HelloSally {
                  System.out.println();
                  System.out.println(chosenAct);
                  
+		// remove activity from list so that the user will be guranteed a different activity if they restart program
                  activities.remove(rand);
                  
 
    
         	
         	System.out.println();
+			
+		// loop program
         	System.out.println("Would you like to restart? yes or no");
         	String contAnswer = userInput.nextLine();
         		
+			// error handling
         		while(!contAnswer.equals("yes") && !contAnswer.equals("no")) {
         			System.out.println("that's not an answer try again.");
         			contAnswer = userInput.nextLine();
